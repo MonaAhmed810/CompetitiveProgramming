@@ -1,3 +1,17 @@
+/*
+    build a graph:
+        each node represent the number of employee.
+        each employee connects to the all employees that manage him,
+        by creating adjacency list for each employee.
+
+    if instruction from type management change:  T a b
+        swap 2 lists and iterate over all lists if found a put b and if found b put a.
+    if instruction from type query: P x
+        initialise result by OO.
+        dfs from x and minimize the answer.
+        if result == OO then there is no employee manage this employee.
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
