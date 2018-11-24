@@ -1,3 +1,19 @@
+/*
+        DP - knapsack maximization problem:
+            try to take or leave each board.
+            and calculate the perimeter of left boards while going. 
+            DP state : i --> index of board.
+                       prev --> last board wasn't taken.
+                       perimeter --> total perimeter till this state.
+
+        How to calculate perimeter:
+            initial previous board heigth = 0
+            for each board we add to perimeter
+                the absolute different between its height and previous height
+                + 2  (the up and down width)
+            then add the heigth of last board.
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
