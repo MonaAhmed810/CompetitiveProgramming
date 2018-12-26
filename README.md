@@ -1,3 +1,3 @@
 # CompetitiveProgramming
 
-Solutions to some OJ Problems. Language used is C++.
+My solutions to some OJ Problems. Language used is C++.
