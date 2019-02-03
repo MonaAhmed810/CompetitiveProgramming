@@ -26,7 +26,6 @@ void sieve() {
                 notPrime[j] = 1;
 }
 
-
 // O(n)
 void factoriseWithSieve() {
     notPrime[0] = notPrime[1] = 1;
