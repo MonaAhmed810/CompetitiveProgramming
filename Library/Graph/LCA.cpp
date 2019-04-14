@@ -3,10 +3,9 @@
 using namespace std;
 
 const int N = 1003, OO = (int) 1e9;
-vector<int> adj[N];
-vector<int> e, lvl;
+vector<int> adj[N], e, lvl;
 int h[N];
-pair<int, int> sg[4 * N];
+pair<int, int> sg[5 * N];
 
 void dfs(int i, int parent, int level) {
     e.push_back(i);
