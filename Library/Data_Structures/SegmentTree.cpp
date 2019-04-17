@@ -1,14 +1,11 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-const int N = 100005;
-const int OO = 1e9;
+const int N = 100005, OO = 1e9;
 int n, arr[N], sg[4 * N], lp[4 * N];
 
 int build(int idx, int l, int r) {
-    if (l > r)
-        return -OO;
     if (l == r)
         return sg[idx] = arr[l];
     int m = (l + r) / 2;
@@ -18,8 +15,6 @@ int build(int idx, int l, int r) {
 }
 
 int update(int idx, int l, int r, int pos, int val) {
-    if (l > r)
-        return -OO;
     if (r < pos || l > pos)
         return sg[idx];
     if (l == r)
@@ -31,8 +26,6 @@ int update(int idx, int l, int r, int pos, int val) {
 }
 
 int updateRng(int idx, int l, int r, int st, int ed, int val) {
-    if (l > r)
-        return -OO;
     if (ed < l || st > r)
         return sg[idx];
     if (l >= st && r <= ed) {

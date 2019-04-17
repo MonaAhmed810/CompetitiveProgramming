@@ -12,7 +12,6 @@ void calcLogs() {
 }
 
 void buildSparse() {
-    calcLogs();
     for (int i = 0; i < n; i++)
         st[i][0] = a[i];
     for (int j = 1; j <= lg[n]; j++)
