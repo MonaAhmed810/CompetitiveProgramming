@@ -3,8 +3,8 @@
 using namespace std;
 
 const int N = 1003, OO = (int) 1e9;
-vector<int> adj[N], e, lvl;
-int h[N];
+vector<int> adj[N];
+vector<int> e, lvl, h;
 pair<int, int> sg[5 * N];
 
 void dfs(int i, int parent, int level) {
@@ -20,10 +20,8 @@ void dfs(int i, int parent, int level) {
 }
 
 pair<int, int> buildSegmentTree(int idx, int l, int r) {
-    if (l > r)
-        return {OO, OO};
     if (l == r)
-        return sg[idx] = {lvl[l], l};
+        return sg[idx] = {lvl[l], e[l]};
     int m = (l + r) / 2;
     pair<int, int> prt1 = buildSegmentTree(2 * idx + 1, l, m);
     pair<int, int> prt2 = buildSegmentTree(2 * idx + 2, m + 1, r);
@@ -43,7 +41,7 @@ pair<int, int> query(int idx, int l, int r, int st, int ed) {
 
 void buildLCA() {
     dfs(1, 0, 0);
-    memset(h, -1, sizeof(h));
+    h.resize(e.size(), -1);
     for (int i = 0; i < (int) e.size(); i++)
         if (h[e[i]] == -1)
             h[e[i]] = i;
@@ -53,5 +51,5 @@ void buildLCA() {
 int getLCA(int x, int y) {
     if (h[x] > h[y])
         swap(x, y);
-    return e[query(0, 0, lvl.size() - 1, h[x], h[y]).second];
+    return query(0, 0, lvl.size() - 1, h[x], h[y]).second;
 }
